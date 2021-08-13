@@ -2,14 +2,12 @@
     session_start();
     Class Database{
 	
-	$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-        private $server = "mysql:host=".$cleardb_url['host'].";dbname=".substr($cleardb_url['path'],1).";
-        private $username = $cleardb_url["user"];
-        private $pass =$cleardb_url["pass"];
+        private $server = "mysql:host=;dbname="";
+        private $username = "freelanc";
+        private $pass ="c-3Mrt3W.nPX13";
         private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	
-	$active_group = 'default';
-	$query_builder = TRUE;
+
         protected $conn;
          
         public function open(){
