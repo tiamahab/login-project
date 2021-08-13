@@ -1,10 +1,11 @@
 <?php
     session_start();
     Class Database{
- 
-        private $server = "mysql:host=localhost;dbname=brian";
-        private $username = "root";
-        private $pass = "";
+	
+	$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+        private $server = "mysql:host=".$cleardb_url['host'].";dbname=".substr($cleardb_url['path'],1).";
+        private $username = $cleardb_url["user"];
+        private $pass =$cleardb_url["pass"];
         private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
         protected $conn;
          
