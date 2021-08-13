@@ -7,6 +7,9 @@
         private $username = $cleardb_url["user"];
         private $pass =$cleardb_url["pass"];
         private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
+	
+	$active_group = 'default';
+	$query_builder = TRUE;
         protected $conn;
          
         public function open(){
