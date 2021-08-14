@@ -29,7 +29,7 @@ die("connection failed:" . mysqli_connect_error());
 		if($password1 == $password2){
             if(strlen($contact)==10){
                 
-                $sql ="SELECT COUNT(*) AS numrows FROM users WHERE email='$email'";
+                $sql ="SELECT COUNT(*) AS numrows FROM users WHERE contact='$contact'";
                 $result=mysqli_query($conn, $sql);
                 $row= mysqli_fetch_array($result);		
                 if($row['numrows'] ==0)
@@ -38,14 +38,14 @@ die("connection failed:" . mysqli_connect_error());
                     $sqlinsert ="INSERT INTO users (name, email, contact, password) VALUES ('$name', '$email', '$contact', '$password')";
                     $resultinsert=mysqli_query($conn, $sqlinsert);
                     
-                    $_SESSION['email']=$email;
+                    $_SESSION['phone']=$contact;
                     $_SESSION['name'] = $name;
                     header('location: home.php');
                     
                 }
                 else
                 {
-                    $_SESSION['error'] = 'Email already exists';
+                    $_SESSION['error'] = 'Number already exists';
                     header('location: signup.php');
                 }
             }
@@ -70,7 +70,7 @@ die("connection failed:" . mysqli_connect_error());
 		$password = $_POST['pwd'];
 
         
-        $query ="SELECT *, COUNT(*) AS numrows FROM users WHERE email ='$email'";
+        $query ="SELECT *, COUNT(*) AS numrows FROM users WHERE contact ='$contact'";
         $check=mysqli_query($conn, $query);
         $row =mysqli_fetch_array($check);
         if($row['numrows'] > 0){
@@ -86,7 +86,7 @@ die("connection failed:" . mysqli_connect_error());
         }
         else
         {
-            $_SESSION['error'] = 'Email not found';
+            $_SESSION['error'] = 'Number not found';
             header('location:login.php?Emailnotfound');
             
         }
