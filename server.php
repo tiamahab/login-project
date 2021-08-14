@@ -31,7 +31,7 @@ die("connection failed:" . mysqli_connect_error());
                 
                 $sql ="SELECT COUNT(*) AS numrows FROM users WHERE email='$email'";
                 $result=mysqli_query($conn, $sql);
-                $row= mysqli_fetch_array($tesult);		
+                $row= mysqli_fetch_array($result);		
                 if($row['numrows'] ==0)
                 {
                     $password = password_hash($password1, PASSWORD_DEFAULT);
