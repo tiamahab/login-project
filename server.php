@@ -1,32 +1,9 @@
 <?php
     session_start();
-    Class Database{
-	
-        private $server = "mysql:sql5.freesqldatabase.com;dbname=sql5430872";
-        private $username ="sql5430872";
-        private $pass ="QRNB4IUK2P";
-        private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
-	
-
-        protected $conn;
-         
-        public function open(){
-             try{
-                 $this->conn = new PDO($this->server, $this->username, $this->pass, $this->options);
-                 return $this->conn;
-             }
-             catch (PDOException $e){
-                 echo "There is some problem in connection: " . $e->getMessage();
-             }
-     
-        }
-     
-        public function close(){
-               $this->conn = null;
-         }
-     
-    }
-    $pdo = new Database();
+    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
+if(!$conn){
+die("connection failed:" . mysqli_connect_error());
+}
 
     $name = "";
     $email ="";
@@ -49,20 +26,20 @@
 
 		if($password1 == $password2){
             if(strlen($contact)==10){
-                $conn = $pdo->open();
-                $stmt = $conn->prepare("SELECT COUNT(*) AS numrows FROM users WHERE email=:email");
-                $stmt->execute(['email'=>$email]);
-                $row = $stmt->fetch();		
+                
+                $sql ="SELECT COUNT(*) AS numrows FROM users WHERE email='$email'");
+                $result=mysqli_query($conn, $sql);
+                $row= mysqli_fetch_array($tesult);		
                 if($row['numrows'] ==0)
                 {
                     $password = password_hash($password1, PASSWORD_DEFAULT);
-                    $stmt = $conn->prepare("INSERT INTO users (name, email, contact, password) VALUES (:name, :email, :contact, :password)");
-                    $stmt->execute(['name'=>$name,'email'=>$email, 'contact'=>$contact, 'password'=>$password ]);
-                    $userid = $conn->lastInsertId();
+                    $sqlinsert ="INSERT INTO users (name, email, contact, password) VALUES ('$name', '$email', '$contact', '$password')";
+                    $resultinsert=mysqli_query($conn, $sqlinsert);
+                    
                     $_SESSION['email']=$email;
                     $_SESSION['name'] = $name;
                     header('location: home.php');
-                    $pdo->close();
+                    
                 }
                 else
                 {
@@ -90,10 +67,10 @@
         $_SESSION['email']=$email;
 		$password = $_POST['pwd'];
 
-        $conn = $pdo->open();
-        $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM users WHERE email = :email");
-        $stmt->execute(['email'=>$email]);
-        $row = $stmt->fetch();
+        
+        $query ="SELECT *, COUNT(*) AS numrows FROM users WHERE email ='$email'";
+        $check=mysqli_query($conn, $query);
+        $row =mysqli_fetch_array($check);
         if($row['numrows'] > 0){
                 if(password_verify($password, $row['password'])){
                     header('location: home.php');
@@ -113,6 +90,6 @@
         }
 
 	}
-	$pdo->close();
+	
 
 
