@@ -11,18 +11,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
     <body>
+      <br>
         <div class="wrapper">
             <div class="icon"><i class="fas fa-user"></i></div>
             <div class="content">
                 <br>
-                <br>
+                
                 <br>
                 <h4>Bet against each other <br>
                     rather than robbing bet <br>
                     companies
                 </h4>
                 <br>
-                <br>
+               
                 <br>
                 <p>When betting with a betting company you <br>
                     can only bet on the odds they offer, which <br>
