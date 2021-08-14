@@ -23,7 +23,7 @@ die("connection failed:" . mysqli_connect_error());
 		$password2 = $_POST['pwd2'];
 
 		$_SESSION['name'] = $name;
-		$_SESSION['email'] = $email;
+		$_SESSION['phone'] = $contact;
 
 
 		if($password1 == $password2){
@@ -65,8 +65,8 @@ die("connection failed:" . mysqli_connect_error());
 
     //login
     if(isset($_POST['login'])){
-		$email = $_POST['email'];
-        $_SESSION['email']=$email;
+		$contact= $_POST['phone'];
+        $_SESSION['phone']=$contact;
 		$password = $_POST['pwd'];
 
         
