@@ -29,7 +29,7 @@ die("connection failed:" . mysqli_connect_error());
 		if($password1 == $password2){
             if(strlen($contact)==10){
                 
-                $sql ="SELECT COUNT(*) AS numrows FROM users WHERE email='$email'");
+                $sql ="SELECT COUNT(*) AS numrows FROM users WHERE email='$email'";
                 $result=mysqli_query($conn, $sql);
                 $row= mysqli_fetch_array($tesult);		
                 if($row['numrows'] ==0)
