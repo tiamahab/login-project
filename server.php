@@ -1,17 +1,18 @@
 <?php
     session_start();
 $conn="";
-    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
-if(!$conn){
-die("connection failed:" . mysqli_connect_error());
-}
-
-    $name = "";
+$name = "";
     $email ="";
     $contact = "";
     $password="";
     $password1 ="";
     $password2 ="";
+    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
+if(!$conn){
+die("connection failed:" . mysqli_connect_error());
+}
+
+    
 
     //register user
     if(isset($_POST['signup'])){
