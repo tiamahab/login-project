@@ -13,9 +13,9 @@
         <title>Project</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body style="background:black">
         <header >
-            <img src="image1.jpg" alt="" style="width:100%; position:absolute; z-index:-10;">
+            <img src="https://images.app.goo.gl/oP6niPCxRkZkAazbA" alt="" style="width:100%; position:absolute; z-index:-10;">
             <div class="container">
                 <nav>
                     <h3 class="brand">logo</h3>
@@ -30,8 +30,8 @@
         </header>
 
         <main>
-            <button>
-            <a href="logout.php">logout</a>
+            <button style="width:50%; background-color:crimson; border:none; color:white;">
+            <a style="color:white;" href="logout.php">logout</a>
             </button>
             
 
