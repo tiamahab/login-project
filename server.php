@@ -4,7 +4,7 @@
 	
         private $server = "mysql:sql5.freesqldatabase.com;dbname=sql5430872";
         private $username ="sql5430872";
-        private $pass ="";
+        private $pass ="QRNB4IUK2P";
         private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	
 
