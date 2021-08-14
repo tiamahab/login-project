@@ -247,6 +247,7 @@ customisations
     }
     .wrapper .content p{
         text-align: left;
+        font-size:12px;
     }
     .wrapper .buttons{
         position: absolute;
