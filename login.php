@@ -37,7 +37,7 @@
                 ?>
 
                 <div class="input-group">
-                    <div class="text">Full name</div>
+                    <div class="text">Email</div>
                     <input type="email" name="email" placeholder="Enter email..">
                 </div>
                 <div class="input-group">
