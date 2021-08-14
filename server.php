@@ -2,9 +2,9 @@
     session_start();
     Class Database{
 	
-        private $server = "mysql:host=mi3-sr2.byarufashionworld.com;dbname=byarufashion_test";
-        private $username = "byarufashion@byarufashionworld.com";
-        private $pass ="3DlK5_{F4RWy";
+        private $server = "mysql:sql5.freesqldatabase.com;dbname=sql5430872";
+        private $username ="sql5430872";
+        private $pass ="";
         private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	
 
