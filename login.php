@@ -37,8 +37,8 @@
                 ?>
 
                 <div class="input-group">
-                    <div class="text">Email</div>
-                    <input type="email" name="email" placeholder="Enter email..">
+                    <div class="text">Phone</div>
+                    <input type="tel" name="phone" placeholder="Enter phone number.">
                 </div>
                 <div class="input-group">
                     <div class="text">Password</div>
