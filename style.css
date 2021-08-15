@@ -54,7 +54,7 @@ main{
 create bet form
 ------------*/
 .form-container{
-    width: 400px;
+    width: 350px;
     height: 500px;
     overflow: auto;
     background: #fff;
