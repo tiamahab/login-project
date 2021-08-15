@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if(isset(!$_SESSION['phone'])){
+    if(!isset($_SESSION['phone'])){
         header('location: logout.php');
     }
 ?>
