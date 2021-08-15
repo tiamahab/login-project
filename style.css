@@ -1,0 +1,324 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 90vh;
+    width: 100%;
+    background: rgb(209, 207, 207);
+}
+/*----------
+header
+-----------*/
+header{
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+header .container{
+    width: 90%;
+    padding: 0px;
+}
+header .container nav{
+    width: 100%;
+}
+header .container nav h3{
+    width: 100%;
+    text-align: center;
+    background: #fff;
+}
+header .container nav ul{
+    list-style-type: none;
+    background: #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left:-15%;
+    margin-right:-15%;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+header .container nav ul li a{ 
+    color: #fff;
+}
+/*----------
+main
+-----------*/
+main{
+    width: 90%;
+    margin: 0 auto;
+}
+/*------------
+create bet form
+------------*/
+.form-container{
+    width: 400px;
+    height: 500px;
+    overflow: auto;
+    background: #fff;
+    padding: 30px;
+    position: absolute;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    text-align: center;
+    transition: all .3s ease;
+    border-radius: 10px;
+    z-index: 9999;
+}
+.form-container form{
+    width: 100%;
+}
+.form-container form .input-group{
+    width: 90%;
+}
+.form-container form .input-group label{
+    width: 30%;
+}
+.form-container form .input-group input{
+    width: 70%;
+}
+#toggle{
+    display: none;
+}
+#toggle:checked~ .form-container{
+    opacity: 0;
+    top: 40%;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+.form-container .cancel-btn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-weight: bolder;
+    font-size: 18px;
+    cursor: pointer;
+    color:#000;
+}
+.form-container form button{
+    width: 80%;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+/*----------
+add link
+-----------*/
+#add-link{
+    position: fixed;
+    right: 20px;
+    bottom: 150px;
+    padding: 0px;
+    height: 40px;
+    width: 40px;
+    text-decoration: none;
+    background: #000;
+    border-radius: 5px;
+}
+#add-link a{
+    color: #fff;
+    height: 40px;
+    width:40px;
+    padding: 10px;
+}
+#add-link a{
+    color: #fff;
+    font-size: 25px;
+}
+
+.show-btn, .wrapper{
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+.show-btn{
+    color:#111004;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 13px 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.wrapper{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    transition: all .3s ease;
+
+}
+.wrapper .buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.wrapper .buttons button{
+    text-decoration: none;
+    width:45%;
+    border: none;
+    background: linear-gradient(136deg, #111004 0%, #1b7fbd 100%);
+}
+.wrapper .buttons button a{
+    color: #fff;
+}
+.wrapper .icon{
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    line-height: 110px;
+    background: linear-gradient(136deg, #111004 0%, #1b7fbd 100%);
+    font-size: 55px;
+    color: #fff;
+}
+.wrapper .content{
+    margin: 20px;
+}
+.content header{
+    font-size: 30px;
+    font-weight: bolder;
+    color: #111004;
+}
+.content p{
+    color:#111004;
+    font-weight: 400;
+    margin-left: -3px;
+}
+form{
+    width: 98%;
+}
+form .input-group{
+    display:flex;
+    border-radius: 3px;
+    margin: 2px;
+}
+form .input-group .text{
+    text-align: left;
+}
+form .input-group input{
+    width: 100%;
+    padding: 0 20px;
+    outline: none;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid grey;
+    transition: all 0.3s ease;
+}
+form .btn{
+    height: 47px;
+    background: linear-gradient(136deg, #111004 0%, #1b7fbd 100%);
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
+    padding: 0px;
+    width: 98%;
+    cursor: pointer;
+}
+.wrapper p{
+    text-decoration: none;
+
+}
+.wrapper p a{
+    color: rgb(8, 79, 112);
+}
+.wrapper form .callout-danger{
+    color: #721c24;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+.wrapper form .callout-success{
+    color: #155724;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+/*------------
+footer
+--------------*/
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height:100px;
+    background: black;
+    color: #fff;
+}
+footer .footer-container{
+    padding-top: 30px;
+    text-align: center;
+}
+footer .footer-container button{
+    background: transparent;
+    text-decoration: none;
+    border: none;
+}
+/*--------------
+customisations
+*--------------*/
+@media(max-width:600px) {
+    body{
+        width: 100%;
+        height: 100vh;
+        background: rgb(209, 207, 207);
+        overflow: hidden;
+    }
+    .wrapper{
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+    }
+
+    .wrapper .icon{
+        height:40px;
+        width:40px;
+        border-radius: 50%;
+        background: black;
+        padding: 0px;
+        margin: 0;
+        font-size: 20px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+    .wrapper .content h4{
+        text-align: left;
+    }
+    .wrapper .content p{
+        text-align: left;
+    }
+    .wrapper .buttons{
+        position: absolute;
+        width: 50%;
+        top: 5px;
+        right: 5px;  
+    }
+    .wrapper .buttons button{
+        text-decoration: none;
+        width:45%;
+        background: transparent;
+        border-right: 2px solid black;
+    }
+    .wrapper .buttons button a{
+        color: #000;
+        font-weight: bolder;
+    }
+    .wrapper .buttons button:hover {
+        text-decoration: none;
+        width:45%;
+        background: transparent;
+        border-right: 2px solid black;
+    }
+}
