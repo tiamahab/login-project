@@ -17,7 +17,7 @@ die("connection failed:" . mysqli_connect_error());
     //register user
     if(isset($_POST['signup'])){
 		$name = $_POST['fullName'];
-		$email = $_POST['email'];
+	
         $contact = $_POST['phone'];
 		$password1 = $_POST['pwd1'];
 		$password2 = $_POST['pwd2'];
@@ -35,12 +35,12 @@ die("connection failed:" . mysqli_connect_error());
                 if($row['numrows'] ==0)
                 {
                     $password = password_hash($password1, PASSWORD_DEFAULT);
-                    $sqlinsert ="INSERT INTO users (name, email, contact, password) VALUES ('$name', '$email', '$contact', '$password')";
+                    $sqlinsert ="INSERT INTO users (name, contact, password) VALUES ('$name', '$contact', '$password')";
                     $resultinsert=mysqli_query($conn, $sqlinsert);
                     
                     $_SESSION['phone']=$contact;
                     $_SESSION['name'] = $name;
-                    header('location: home.php');
+                    header('location: home1.php');
                     
                 }
                 else
@@ -75,7 +75,7 @@ die("connection failed:" . mysqli_connect_error());
         $row =mysqli_fetch_array($check);
         if($row['numrows'] > 0){
                 if(password_verify($password, $row['password'])){
-                    header('location: home.php');
+                    header('location: home1.php');
                 }
                 else
                 {
