@@ -77,9 +77,12 @@ create bet form
 }
 .form-container form .input-group label{
     width: 30%;
+    font-size:12px;
 }
 .form-container form .input-group input{
     width: 70%;
+    font-size:12px;
+    height:18px;
 }
 #toggle{
     display: none;
