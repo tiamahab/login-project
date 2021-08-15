@@ -39,10 +39,7 @@
                     <div class="text">Full name</div>
                     <input type="text" name="fullName" placeholder="Enter full name..." required>
                 </div>
-                <div class="input-group">
-                    <div class="text">Email</div>
-                    <input type="email" name="email" placeholder="Enter email address..." required>
-                </div>
+                
                 <div class="input-group">
                     <div class="text">Phone</div>
                     <input type="text" name="phone" placeholder="Enter phone number..." required>
