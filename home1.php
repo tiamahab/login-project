@@ -68,6 +68,10 @@
                     </tbody>
                 </table>
             </section>
+            <br>
+            <br>
+            <br>
+            <br>
         </main>
         <footer>
             <div class="footer-container">
