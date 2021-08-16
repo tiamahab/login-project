@@ -5,7 +5,7 @@
     }
 
         //connect to the database
- $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872")
+ $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
         //checking connection
         if (!$conn) {
           die("connection failed: " . mysqli_connect_error());
