@@ -76,7 +76,7 @@ main section .details .title .team,
 main section .details .home .team,
 main section .details .away .team,
 main section .details .draw .team{
-    width: 68%;
+    width: 65%;
     display: inline-block;
 }
 main section .details .title .back,
