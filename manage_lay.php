@@ -1,11 +1,11 @@
 <?php
     session_start();
     //connect to the database
-    $conn = mysqli_connect("localhost","root", "","brian");
-    //checking connection
-    if (!$conn) {
-        die("connection failed: " . mysqli_connect_error());
-    }
+    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
+if(!$conn){
+die("connection failed:" . mysqli_connect_error());
+}
+
     $odd="";
     $stake="";
     if(isset($_POST['lay-bet'])){
