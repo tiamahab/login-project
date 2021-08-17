@@ -17,93 +17,181 @@ header{
     background: #fff;
     overflow: hidden;
 }
-header .container{
-    width: 90%;
-    padding: 0px;
-}
-header .container nav{
-    width: 100%;
-}
-header .container nav h3{
-    width: 100%;
-    text-align: center;
-    background: #fff;
-}
-header .container nav ul{
-    list-style-type: none;
-    background: #000;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left:-15%;
-    margin-right:-15%;
-    margin-bottom: 0px;
-    display: flex;
-    justify-content: space-around;
-}
-header .container nav ul li a{ 
-    color: #fff;
-}
-/*----------
-main
+/*-----------
+banner
 -----------*/
-main{
-    width: 90%;
-    margin: 0 auto;
-}
-/*------
-details
------------*/
-main section{
-    width: 100%;
-}
-main section .details{
-    width: 100%;
-}
-main section .details p{
-    width: 100%;
-    background: #000;
-    color: #fff;
-}
-main section .details .title,
-main section .details .home,
-main section .details .away,
-main section .details .draw{
+#banner{
     width: 100%;
     display: inline-block;
-    border-bottom: 1px solid #9da8a0;
-}
-main section .details .title .team,
-main section .details .home .team,
-main section .details .away .team,
-main section .details .draw .team{
-    width: 65%;
-    display: inline-block;
-}
-main section .details .title .back,
-main section .details .home .back,
-main section .details .away .back,
-main section .details .draw .back{
-    width: 13%;
-    display: inline-block;
-    background: #2a99c5;
-    border-radius:5px ;
-    color: #000;
     padding: 10px;
-    margin: 3px;
+    background: crimson;
+}
+#banner .odd,
+#banner .over{
+    width: 48%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+}
+#banner .odd a,
+#banner .over a{
+    color: #fff;
+}
+#banner .odd .active,
+#banner .over .active{
+    color: black;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+main section .details .home .back,
+main section .details .home .lay,
+main section .details .away .back,
+main section .details .away .lay,
+main section .details .draw .back,
+main section .details .draw .lay{
+    text-decoration: none;
+    font-weight: bolder;
+}
+main section .details .home .back a,
+main section .details .home .lay a,
+main section .details .away .back a,
+main section .details .away .lay a,
+main section .details .draw .back a,
+main section .details .draw .lay a{
+    text-decoration: none;
+    color: black;
+} 
+/*-----------
+lay bet
+-----------*/
+main section .details .lay-bet{
+    padding: 10px;
+    height: 120px;
+    background: #f8959f;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+main section .details .lay-bet form{
+    width:100%;
+    padding: 5px;
+    margin: 0 auto;
+    display: inline-block;
+
+}
+main section .details .lay-bet form input{
+   width:48%;
+   margin-right: 5px;
+   display: inline-block;
+
+}
+main section .details .lay-bet form .stake{
+    width:48%;
+    padding-left: 5px;
+    display: inline-block;
+}
+main section .details .lay-bet form .stake span{
+    font-weight: bolder;
+}
+main section .details .lay-bet form .stake input{
+    width:75%;
     
 }
-main section .details .title .lay,
-main section .details .home .lay,
-main section .details .away .lay,
-main section .details .draw .lay{
-    width: 13%;
-    display: inline-block;
-    background: #f8959f;
-    border-radius:5px ;
-    color: #000;
-    padding: 10px;
-    margin: 3px;
+main section .details .lay-bet form .buttons{
+    width:100%;
+    padding: 5px;
+    
 }
+main section .details .lay-bet form .link{
+    width:48%;
+    padding: 0px;
+    margin: 0 auto;
+    border: none;
+    text-decoration: none;
+    background: rgb(133, 130, 130); 
+}
+main section .details .lay-bet form .link a{
+    width:100%;
+    color: #000;
+    height: 30px;
+    cursor: pointer;
+}
+main section .details .lay-bet form button{
+    width:48%;
+    margin: 0 auto;
+    border: none;
+    text-decoration: none; 
+    height: 30px; 
+    background: #000;
+    color: #fff;;
+}
+/*-----------
+back bet
+-----------*/
+main section .details .back-bet{
+    padding: 10px;
+    height: 120px;
+    background: #2a99c5;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+main section .details .back-bet form{
+    width:100%;
+    padding: 5px;
+    margin: 0 auto;
+    display: inline-block;
+
+}
+main section .details .back-bet form input{
+   width:48%;
+   margin-right: 5px;
+   display: inline-block;
+
+}
+main section .details .back-bet form .stake{
+    width:48%;
+    padding-left: 5px;
+    display: inline-block;
+}
+main section .details .back-bet form .stake span{
+    font-weight: bolder;
+}
+main section .details .back-bet form .stake input{
+    width:75%;
+    
+}
+main section .details .back-bet form .buttons{
+    width:100%;
+    padding: 5px;
+    
+}
+main section .details .back-bet form .link{
+    width:48%;
+    padding: 0px;
+    margin: 0 auto;
+    border: none;
+    text-decoration: none;
+    background: rgb(133, 130, 130); 
+}
+main section .details .back-bet form .link a{
+    width:100%;
+    color: #000;
+    height: 30px;
+    cursor: pointer;
+}
+main section .details .back-bet form button{
+    width:48%;
+    margin: 0 auto;
+    border: none;
+    text-decoration: none; 
+    height: 30px; 
+    background: #000;
+    color: #fff;;
+}
+
 /*------------
 create bet form
 ------------*/
