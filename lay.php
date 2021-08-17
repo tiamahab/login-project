@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if(!isset($_SESSION['phone'])){
-        matches('location: logout.php');
+        header('location: logout.php');
     }
 
     //connect to the database
