@@ -122,7 +122,7 @@ lay bet
 -----------*/
 main section .details .lay-bet{
     padding: 10px;
-    height: 120px;
+    
     background: #f8959f;
     border: none;
     border-radius: 5px;
@@ -186,7 +186,7 @@ back bet
 -----------*/
 main section .details .back-bet{
     padding: 10px;
-    height: 120px;
+   
     background: #2a99c5;
     border: none;
     border-radius: 5px;
