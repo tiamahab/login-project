@@ -5,12 +5,13 @@
     }
 
     //connect to the database
-    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
+    $conn = mysqli_connect("localhost","root", "","brian");
         //checking connection
     if (!$conn) {
           die("connection failed: " . mysqli_connect_error());
     }
     $match=$_GET['matchId'];
+    $_SESSION['matchId']=$match;
     $sql="SELECT * FROM matches WHERE id ='$match'";
     $result=mysqli_query($conn, $sql);
 ?>
@@ -27,17 +28,32 @@
     </head>
     <body>
         <header >
-            <div class="container">
-                <nav>
-                    <h3 class="brand">company <span>Name</span></h3>
-                    <ul>
-                        <li ><a href="#">HOME</a></li>
-                        <li ><a href="#">SERVICES</a></li>
-                        <li><a href="#">CONTACT</a></li>
-                        <li><a href="#">profile</a></li>
+            <nav class="navbar navbar-expand-sm " id="my-navbar">
+                <a id="navbar-brand" href="home1.php">CO. NAME</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                  <span ><i class="fas fa-align-justify"></i></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav m-auto">
+                        <li>
+                            <a href="home1.php"><i class="fas fa-home"></i> HOME</a>
+                        </li>
+
+                        <li >
+                            <a href="#"><i class="fas fa-phone"></i> CONTACT US</a>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fas fa-chevron-down"></i> SERVICES</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#"><i class="fas fa-user"></i> ABOUT US</a>
+                        </li>
                     </ul>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
 
         <main>
@@ -47,7 +63,10 @@
                 while($row=mysqli_fetch_assoc($result)){
                 echo"
                     <div class='details'>
-                        <p>Match Odds</p>
+                        <div id='banner'>
+                            <div class='odd'><a class='active' href='match_details.php?matchId=".$_SESSION['matchId']."'>Match odds</a></div>
+                            <div class='over'><a  href='over_under.php?matchId=".$_SESSION['matchId']."'>Over / Under</a></div>
+                        </div>
                         <div class='title'>
                             <div class='team'>Matched</div>
                             <div class='back' style='margin:3px;padding:0px;background:transparent;'>Back</div>
@@ -55,24 +74,21 @@
                         </div>
                         <div class='home'>
                             <div class='team'>".$row['home']."</div>
-                            <div class='back'>".$row['awayw']."</div>
-                            <div class='lay'>".$row['under']."</div>
+                            <div class='back'><a href='back.php?kind=home&matchid=".$row['id']."'>".$row['homew']."</a></div>
+                            <div class='lay'><a href='lay.php?kind=home&matchid=".$row['id']."'>".$row['awayw']."</a></div>
                         </div>
                         <div class='away'>
                             <div class='team'>".$row['away']."</div>
-                            <div class='back'>
-                                ".$row['awayw']."
-                            </div>
-                            <div class='lay'>".$row['under']."</div>
+                            <div class='back'><a href='back.php?kind=home&matchid=".$row['id']."'>".$row['awayw']."</a></div>
+                            <div class='lay'><a href='lay.php?kind=away&matchid=".$row['id']."'>".$row['homew']."</a></div>
                         </div>
                         <div class='draw'>
                             <div class='team'>Draw</div>
-                            <div class='back'>".$row['ov']."</div>
-                            <div class='lay'>".$row['under']."</div>
+                            <div class='back'><a href='back.php?kind=home&matchid=".$row['id']."'>".$row['ov']."</a></div>
+                            <div class='lay'><a href='lay.php?kind=draw&matchid=".$row['id']."'>".$row['draw']."</a></div>
                         </div>
                     </div>
                     ";
-
                      } 
                      ?>
             </section>

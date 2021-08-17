@@ -4,13 +4,15 @@
         header('location: logout.php');
     }
 
-        //connect to the database
-        $conn = mysqli_connect("localhost","root", "","brian");
+    //connect to the database
+    $conn = mysqli_connect("localhost","root", "","brian");
         //checking connection
-        if (!$conn) {
+    if (!$conn) {
           die("connection failed: " . mysqli_connect_error());
-        } 
-    $sql="SELECT * FROM matches ORDER BY id desc";
+    }
+    $match=$_GET['matchId'];
+    $_SESSION['matchId']=$match;
+    $sql="SELECT * FROM matches WHERE id ='$match'";
     $result=mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
@@ -56,32 +58,34 @@
 
         <main>
             <section>
-                <table class="table ">
-                    <thead>
-                    <tr>
-                        <th>Home</th>
-                        <th>vs</th>
-                        <th>Away</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php 
-                    while($row=mysqli_fetch_assoc($result)){
-                        echo"<tr>
-                            <td>
-                                <a href='match_details.php?matchId=".$row['id']."'>".$row['home']."</a>
-                            </td>
-                            <td>vs</td>
-                            <td>
-                                <a href='match_details.php?matchId=".$row['id']."'>".$row['away']."</a>
-                            </td>
-                        </tr>
-                        ";
+                <?php 
 
+                while($row=mysqli_fetch_assoc($result)){
+                echo"
+                    <div class='details'>
+                        <div id='banner'>
+                            <div class='odd'><a href='match_details.php?matchId=".$_SESSION['matchId']."'>Match odds</a></div>
+                            <div class='over''><a class='active' href='over_under.php?matchId=".$_SESSION['matchId']."'>Over / Under</a></div>
+                        </div>
+                        <div class='title'>
+                            <div class='team'>Matched</div>
+                            <div class='back' style='margin:3px;padding:0px;background:transparent;'>Back</div>
+                            <div class='lay' style='margin:3px;padding: 0px;background:transparent;'>Lay</div>
+                        </div>
+                        <div class='home'>
+                            <div class='team'>OVER</div>
+                            <div class='back'><a href='over_under_back.php?kind=over&matchid=".$row['id']."'>".$row['under']."</a></div>
+                            <div class='lay'><a href='over_under_lay.php?kind=over&matchid=".$row['id']."'>".$row['ov']."</a></div>
+                        </div>
+                        <div class='away'>
+                            <div class='team'>UNDER</div>
+                            <div class='back'><a href='over_under_back.php?kind=under&matchid=".$row['id']."'>".$row['ov']."</a></div>
+                            <div class='lay'><a href='over_under_lay.php?kind=under&matchid=".$row['id']."'>".$row['under']."</a></div>
+                        </div>
+                    </div>
+                    ";
                      } 
                      ?>
-                    </tbody>
-                </table>
             </section>
         </main>
         <footer>
