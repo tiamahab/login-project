@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
- 
+ min-height:60vh;
     width: 100%;
     overflow:hidden;
     background: rgb(209, 207, 207);
@@ -17,7 +17,7 @@ header{
     background: #fff;
     overflow: hidden;
 }
-main{
+body main{
 min-height:600px;
 }
 /*----------
