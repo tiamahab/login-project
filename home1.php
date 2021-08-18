@@ -10,7 +10,7 @@ $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql54
     $res=mysqli_query($conn, $sqluser);
     $rowuser=mysqli_fetch_assoc($res);
     $_SESSION['username']=$rowuser['name'];
-    $sql="SELECT * FROM matches ORDER BY id desc";
+    $sql="SELECT * FROM matches WHERE status='deactivate' ORDER BY id desc";
     $result=mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
