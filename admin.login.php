@@ -1,4 +1,40 @@
-<?php session_start(); ?>
+<?php 
+    session_start();
+    //connect to the database
+    $conn = mysqli_connect("localhost","root", "","brian");
+    //checking connection
+    if (!$conn) {
+      die("connection failed: " . mysqli_connect_error());
+    } 
+
+    //login
+    if(isset($_POST['login'])){
+		$contact = $_POST['phone'];
+        $_SESSION['phone']=$contact;
+		$password = $_POST['pwd'];
+        $sql ="SELECT *, COUNT(*) AS numrows FROM admin_users WHERE contact='$contact'";
+        $result=mysqli_query($conn, $sql);
+        $row=mysqli_fetch_assoc($result);
+        if($row['numrows'] > 0){
+                if(password_verify($password, $row['password'])){
+                    header('location: admin.matches.php');
+                }
+                else
+                {
+                    $_SESSION['error'] = 'Incorrect Password';
+                    header('location: admin.login.php');
+                    
+                }
+        }
+        else
+        {
+            $_SESSION['error'] = 'Number not found';
+            header('location: admin.login.php?Emailnotfound');
+            
+        }
+
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +49,9 @@
     <body>
         <div class="wrapper">
             <div class="content">
-                <h4>LOGIN FORM</h4>
+                <h4>Admin Login</h4>
             </div>
-            <form method="POST" action="server.php">
+            <form method="POST" action="admin.login.php">
                 <?php
                     if(isset($_SESSION['error'])){
                         echo "
@@ -47,8 +83,7 @@
                 <p><a href="#">Forgot password?</a></p>
                 <button type="submit" class="field btn"  name="login">LOGIN</button>
             </form>
-            <p>Not yet a member? <a href="signup.php">Signup</a></p>
-            <p>Go to <a href="admin.login.php">Admin</a></p>
+            <p>Not admin? <a href="login.php">SWITCH</a></p>
 
         </div>
 

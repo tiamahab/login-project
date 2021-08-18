@@ -5,11 +5,11 @@
     }
 
     //connect to the database
-$conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
-if(!$conn){
-die("connection failed:" . mysqli_connect_error());
-}
-
+    $conn = mysqli_connect("localhost","root", "","brian");
+    //checking connection
+    if (!$conn) {
+          die("connection failed: " . mysqli_connect_error());
+        }
 
     $kind=$_GET['kind'];
     $id=$_GET['matchid'];
@@ -34,35 +34,42 @@ die("connection failed:" . mysqli_connect_error());
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header >
-            <nav class="navbar navbar-expand-sm " id="my-navbar">
-                <a id="navbar-brand" href="home1.php">CO. NAME</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                  <span ><i class="fas fa-align-justify"></i></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav m-auto">
-                        <li>
-                            <a href="home1.php"><i class="fas fa-home"></i> HOME</a>
-                        </li>
-
-                        <li >
-                            <a href="#"><i class="fas fa-phone"></i> CONTACT US</a>
-                        </li>
-
-                        <li>
-                            <a href="#"><i class="fas fa-chevron-down"></i> SERVICES</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a href="#"><i class="fas fa-user"></i> ABOUT US</a>
-                        </li>
-                    </ul>
+    <header >
+            <nav>
+                <div class="logo">
+                    <a  href="home1.php">CO. NAME</a>
+                </div>
+                <div class="name">
+                    <a href="profile.php?phone=<?php echo $_SESSION['phone'];?>" ><?php echo $_SESSION['username'];?></a>
                 </div>
             </nav>
         </header>
-
+        <div class="fixed-navigation">
+            <div class="item">
+                <a href="home1.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-home"></i>
+                    <span>HOME</span> 
+                </a>
+            </div>
+            <div class="item">
+                <a href="home1.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-wallet"></i>
+                    <span>Balance</span> 
+                </a>
+            </div>
+            <div class="item">
+                <a href="mybets.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-briefcase"></i>
+                    <span>My bets</span> 
+                </a>
+            </div>
+            <div class="item">
+                <a href="logout.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-times"></i>
+                    <span>Logout</span> 
+                </a>
+            </div>
+        </div>
         <main>
         <section>
                 <?php 

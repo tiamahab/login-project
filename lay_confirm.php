@@ -5,11 +5,11 @@
     }
 
     //connect to the database
- $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
-if(!$conn){
-die("connection failed:" . mysqli_connect_error());
-}
-
+    $conn = mysqli_connect("localhost","root", "","brian");
+    //checking connection
+    if (!$conn) {
+          die("connection failed: " . mysqli_connect_error());
+        }
     $kind=$_SESSION['kind'];
     $id=$_SESSION['matchid'];
 
@@ -34,19 +34,41 @@ die("connection failed:" . mysqli_connect_error());
     </head>
     <body>
         <header >
-            <div class="container">
-                <nav>
-                    <h3 class="brand">company <span>Name</span></h3>
-                    <ul>
-                        <li ><a href="#">HOME</a></li>
-                        <li ><a href="#">SERVICES</a></li>
-                        <li><a href="#">CONTACT</a></li>
-                        <li><a href="#">profile</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <nav>
+                <div class="logo">
+                    <a  href="home1.php">CO. NAME</a>
+                </div>
+                <div class="name">
+                    <a href="profile.php?phone=<?php echo $_SESSION['phone'];?>" ><?php echo $_SESSION['username'];?></a>
+                </div>
+            </nav>
         </header>
-
+        <div class="fixed-navigation">
+            <div class="item">
+                <a href="home1.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-home"></i>
+                    <span>HOME</span> 
+                </a>
+            </div>
+            <div class="item">
+                <a href="home1.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-wallet"></i>
+                    <span>Balance</span> 
+                </a>
+            </div>
+            <div class="item">
+                <a href="mybets.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-briefcase"></i>
+                    <span>My bets</span> 
+                </a>
+            </div>
+            <div class="item">
+                <a href="logout.php">
+                    <i style="margin-left: 45%;color: crimson;" class="fas fa-times"></i>
+                    <span>Logout</span> 
+                </a>
+            </div>
+        </div>
         <main>
         <section>
                 <?php 
