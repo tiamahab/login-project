@@ -62,7 +62,7 @@ die("connection failed:" . mysqli_connect_error());
                 </div>
             </nav>
         </header>
-
+<div class="fixed-navigation"> <div class="item"> <a href="home1.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-home"></i> <span>HOME</span> </a> </div> <div class="item"> <a href="home1.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-wallet"></i> <span>Balance</span> </a> </div> <div class="item"> <a href="profile.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-briefcase"></i> <span>My bets</span> </a> </div> <div class="item"> <a href="logout.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-times"></i> <span>Logout</span> </a> </div> </div>
         <main>
         <section>
                 <?php 
