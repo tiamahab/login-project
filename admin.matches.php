@@ -40,6 +40,7 @@
         <main>
             <div class="profile">
                 <h4>MATCHES</h4>
+                <a href="admin.managematch.php">ADD MATCH</a>
                 <table id="example1" class="table table-bordered">
                 <thead>
                   <th>Id</th>
