@@ -19,7 +19,7 @@
     <body>
         <main>
             <div class="form-container">
-                <h3>CREATE BET</h3>
+                <h3>Enter Match Details</h3>
                 <form  method="post" action="add_bet.php">
                     <h5>Enter teams for the exchange</h5>
                     <div class="input-group">
