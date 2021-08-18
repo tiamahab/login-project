@@ -101,7 +101,7 @@
                     }
                     else
                     {
-                        echo  $row['name']. 'has no lay bets';
+                        echo  $row['name']. ' has no lay bets';
                     }
                 ?>
                 </table>
@@ -145,13 +145,13 @@
                     }
                     else
                     {
-                        echo  $row['name']. 'has no back bets';
+                        echo  $row['name']. ' has no back bets';
                     }
                 ?>
                 </table>
             </div>
             <div class="wallet">
-                <h4>My account</h4>
+                <h4><?php echo strtoupper($row['name']); ?> account</h4>
                 <?php
                     $sqlbet="SELECT SUM(amount) as total From account WHERE userid='".$row['id']."' ";
                     $resultbet=mysqli_query($conn, $sqlbet);
@@ -162,7 +162,7 @@
                     }
                     else
                     {
-                        echo  $row['name']. 'Acount is empty';
+                        echo  $row['name']. ' Acount is empty';
                     }
                     
                 ?>
