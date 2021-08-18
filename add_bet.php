@@ -13,7 +13,7 @@
         $sql="INSERT INTO matches( home, away, homew, awayw, draw, ov, under, status) 
         VALUES('$home', '$away','$homew','$awayw','$draw','$over','$under','deactivate')";
         $result= mysqli_query($conn, $sql);
-        header('location: home1.php');
+        header('location: admin.matches.php');
     }
 
     if(isset($_POST['update-match'])){
