@@ -50,7 +50,7 @@ $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql54
                 </a>
             </div>
             <div class="item">
-                <a href="mybets.php">
+                <a href="profile.php">
                     <i style="margin-left: 45%;color: crimson;" class="fas fa-briefcase"></i>
                     <span>My bets</span> 
                 </a>
