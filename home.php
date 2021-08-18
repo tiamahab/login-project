@@ -10,7 +10,7 @@
         if (!$conn) {
           die("connection failed: " . mysqli_connect_error());
         }
-    $sql="SELECT * FROM matches ORDER BY id desc";
+    $sql="SELECT * FROM matches WHERE status='deactivate' ORDER BY id desc";
     $result=mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
