@@ -1,11 +1,10 @@
 <?php
     session_start();
     //connect to the database
-$conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
+    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
 if(!$conn){
 die("connection failed:" . mysqli_connect_error());
 }
-
     $odd="";
     $stake="";
     if(isset($_POST['back-bet'])){
@@ -30,9 +29,18 @@ die("connection failed:" . mysqli_connect_error());
         $matchid=$_SESSION['matchid'];
         $odd=$_POST['odd'];
         $stake=$_POST['stake'];
-        $sql="INSERT INTO back( userid, matchid, kind, odd, stake) 
-        VALUES('$userid','$matchid','$kind','$odd','$stake')";
+        $win=$_POST['win'];
+        $tax=$_POST['tax'];
+        $return=$_POST['return'];
+
+        
+        $sql="INSERT INTO back( userid, matchid, kind, odd, stake,winnings,tax,retrn,status) 
+        VALUES('$userid','$matchid','$kind','$odd','$stake','$win','$tax','$return','pending')";
         $result= mysqli_query($conn, $sql);
+
+        unset($_SESSION['kind']);
+        unset($_SESSION['matchid']);
+        unset($_SESSION['odd']);
         $_SESSION['success']=='bet successful';
         header('location: match_details.php?matchId='.$matchid);
     }

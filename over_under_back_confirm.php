@@ -5,7 +5,10 @@
     }
 
     //connect to the database
-    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");if(!$conn){die("connection failed:" . mysqli_connect_error());}
+    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");
+if(!$conn){
+die("connection failed:" . mysqli_connect_error());
+}
     $kind=$_SESSION['kind'];
     $id=$_SESSION['matchid'];
 
@@ -53,7 +56,7 @@
                 </a>
             </div>
             <div class="item">
-                <a href="profile.php">
+                <a href="mybets.php">
                     <i style="margin-left: 45%;color: crimson;" class="fas fa-briefcase"></i>
                     <span>My bets</span> 
                 </a>
@@ -88,14 +91,27 @@
                         </div>
                     ";
                         if($kind=='over'){
+                            $tax=0.05;
                         echo"
                                 <div class='back-bet'>
                                     <h6>Back:<strong>OVER</strong></h6>
                                     <form method='post' action='manage_over_under.php'>
+                                        <div class='stake-confirm'>
+                                            <span>odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
+                                        </div>
                                         <input name='uid' value='".$userid."' style='display:none;'>
-                                        <input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
-                                        <div class='stake'>
-                                            <span>UGX:</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        
+                                        <div class='stake-confirm'>
+                                            <span>stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        </div>
+                                        <div class='stake-confirm'>
+                                            <span>Winnings</span><input type='number' name='win' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        </div>
+                                        <div class='stake-confirm'>
+                                            <span>comission</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        </div>
+                                        <div class='stake-confirm'>
+                                            <span>Returns</span><input type='number' name='return' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']-$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         
                                         <div class='buttons'>
@@ -114,14 +130,27 @@
                         </div>
                     ";
                         if($kind=='under'){
+                            $tax=0.05;
                         echo"
                                 <div class='back-bet'>
                                     <h6>Back: <strong>UNDER</strong></h6>
                                     <form method='post' action='manage_over_under.php'>
+                                        <div class='stake-confirm'>
+                                            <span>odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
+                                        </div>
                                         <input name='uid' value='".$userid."' style='display:none;'>
-                                        <input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
-                                        <div class='stake'>
-                                            <span>UGX:</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        
+                                        <div class='stake-confirm'>
+                                            <span>stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        </div>
+                                        <div class='stake-confirm'>
+                                            <span>Winnings</span><input type='number' name='win' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        </div>
+                                        <div class='stake-confirm'>
+                                            <span>comission</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                        </div>
+                                        <div class='stake-confirm'>
+                                            <span>Returns</span><input type='number' name='return' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']-$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         
                                         <div class='buttons'>

@@ -5,7 +5,6 @@
 if(!$conn){
 die("connection failed:" . mysqli_connect_error());
 }
-
     $odd="";
     $stake="";
 
@@ -31,9 +30,18 @@ die("connection failed:" . mysqli_connect_error());
         $matchid=$_SESSION['matchid'];
         $odd=$_POST['odd'];
         $stake=$_POST['stake'];
-        $sql="INSERT INTO back( userid, matchid, kind, odd, stake) 
-        VALUES('$userid','$matchid','$kind','$odd','$stake')";
+        $win=$_POST['win'];
+        $tax=$_POST['tax'];
+        $return=$_POST['return'];
+
+        
+        $sql="INSERT INTO back( userid, matchid, kind, odd, stake,winnings,tax,retrn,status) 
+        VALUES('$userid','$matchid','$kind','$odd','$stake','$win','$tax','$return','pending')";
         $result= mysqli_query($conn, $sql);
+
+        unset($_SESSION['kind']);
+        unset($_SESSION['matchid']);
+        unset($_SESSION['odd']);
         $_SESSION['success']=='bet successful';
         header('location: over_under.php?matchId='.$matchid);
     }
@@ -60,9 +68,18 @@ die("connection failed:" . mysqli_connect_error());
         $matchid=$_SESSION['matchid'];
         $odd=$_POST['odd'];
         $stake=$_POST['stake'];
-        $sql="INSERT INTO lay( userid, matchid, kind, odd, stake) 
-        VALUES('$userid','$matchid','$kind','$odd','$stake')";
+        $win=$_POST['win'];
+        $tax=$_POST['tax'];
+        $return=$_POST['return'];
+
+        
+        $sql="INSERT INTO lay( userid, matchid, kind, odd, stake,winnings,tax,retrn,status) 
+        VALUES('$userid','$matchid','$kind','$odd','$stake','$win','$tax','$return','pending')";
         $result= mysqli_query($conn, $sql);
+
+        unset($_SESSION['kind']);
+        unset($_SESSION['matchid']);
+        unset($_SESSION['odd']);
         $_SESSION['success']=='bet successful';
         header('location: over_under.php?matchId='.$matchid);
     }
