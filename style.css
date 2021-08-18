@@ -336,6 +336,24 @@ main section .details .lay-bet form button{
     background: #000;
     color: #fff;;
 }
+main section .details .lay-bet form .stake-confirm{
+    width: 80%;
+    margin-left:25%;
+    display: inline-block;
+
+}
+main section .details .lay-bet form .stake-confirm span{
+    width: 40%;
+    font-weight: bolder;
+    text-align: left;
+    display: inline-block;
+}
+main section .details .lay-bet form .stake-confirm span{
+    width: 40%;
+    font-weight: bolder;
+    text-align: left;
+    display: inline-block;
+}
 /*-----------
 back bet
 -----------*/
@@ -400,7 +418,24 @@ main section .details .back-bet form button{
     background: #000;
     color: #fff;;
 }
+main section .details .back-bet form .stake-confirm{
+    width: 80%;
+    margin-left:25%;
+    display: inline-block;
 
+}
+main section .details .back-bet form .stake-confirm span{
+    width: 40%;
+    font-weight: bolder;
+    text-align: left;
+    display: inline-block;
+}
+main section .details .back-bet form .stake-confirm span{
+    width: 40%;
+    font-weight: bolder;
+    text-align: left;
+    display: inline-block;
+}
 /*------------
 create bet form
 ------------*/
