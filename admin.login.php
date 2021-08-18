@@ -12,7 +12,7 @@
         $result=mysqli_query($conn, $sql);
         $row=mysqli_fetch_assoc($result);
         if($row['numrows'] > 0){
-                if(password_verify($password, $row['password'])){
+                if($password==$row['password']){
                     header('location: admin.matches.php');
                 }
                 else
