@@ -94,7 +94,7 @@ die("connection failed:" . mysqli_connect_error());
                             $tax=0.05;
                         echo"
                                 <div class='back-bet'>
-                                    <h6>Lay (bet Against):<strong>".$row['home']."</strong></h6>
+                                    <h6>Back:<strong>".$row['home']."</strong></h6>
                                     <form method='post' action='manage_back.php'>
                                         <div class='stake-confirm'>
                                             <span>odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
