@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="item">
-                <a href="mybets.php">
+                <a href="profile.php">
                     <i style="margin-left: 45%;color: crimson;" class="fas fa-briefcase"></i>
                     <span>My bets</span> 
                 </a>
