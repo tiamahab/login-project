@@ -9,7 +9,9 @@ body{
     background: rgb(209, 207, 207);
 }
 main {
-min-height:600px;
+    width:100%;
+    overflow:auto;
+min-height:500px;
 }
 /*----------
 header
