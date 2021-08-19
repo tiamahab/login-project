@@ -6,7 +6,7 @@
     //login
     if(isset($_POST['login'])){
 		$contact = $_POST['phone'];
-        $_SESSION['phone']=$contact;
+        $_SESSION['phon']=$contact;
 		$password = $_POST['pwd'];
         $sql ="SELECT *, COUNT(*) AS numrows FROM admin_users WHERE contact='$contact'";
         $result=mysqli_query($conn, $sql);
