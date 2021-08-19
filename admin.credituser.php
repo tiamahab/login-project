@@ -4,11 +4,8 @@
         header('location: logout.php');
     }
     //connect to the database
-    $conn = mysqli_connect("localhost","root", "","brian");
-    //checking connection
-    if (!$conn) {
-        die("connection failed: " . mysqli_connect_error());
-    }
+    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");if(!$conn){die("connection failed:" . mysqli_connect_error());}
+
     if(isset($_POST['credit-user'])){
         $uid=$_POST['uid'];
         $amount=-$_POST['amount'];
