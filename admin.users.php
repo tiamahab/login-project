@@ -5,7 +5,11 @@
     }
 
     //connect to the database
-    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");if(!$conn){die("connection failed:" . mysqli_connect_error());}
+    $conn = mysqli_connect("localhost","root", "","brian");
+    //checking connection
+    if (!$conn) {
+          die("connection failed: " . mysqli_connect_error());
+    }
 
     $sql = "SELECT * FROM users ORDER BY id DESC";
     $result=mysqli_query($conn, $sql);
@@ -48,6 +52,7 @@
                   <th>Contact</th>
                   <th>Delete</th>
                   <th>Details</th>
+                  <th>Account</th>
                 </thead>
                 <tbody>
                   <?php
@@ -59,6 +64,7 @@
                             <td>".$row['contact']."</td>
                             <td><a href='admin.userprofile.php?phone=".$row['contact']."'>View</a></td>
                             <td><a href='admin.delete.php?id=".$row['id']."'>delete</a></td>
+                            <td><a href='admin.credituser.php?id=".$row['id']."'>Credit</a></td>
                           </tr>
                         ";
                       }
