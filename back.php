@@ -40,7 +40,7 @@
                     <a href="profile.php?phone=<?php echo $_SESSION['phone'];?>" ><?php echo $_SESSION['username'];?></a>
                 </div>
             </nav>
-        </header>>
+        </header>
         <div class="fixed-navigation">
             <div class="item">
                 <a href="home1.php">
