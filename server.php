@@ -23,7 +23,7 @@ die("connection failed:" . mysqli_connect_error());
 		$password2 = $_POST['pwd2'];
 
 		$_SESSION['name'] = $name;
-		$_SESSION['phon'] = $contact;
+		$_SESSION['phone'] = $contact;
 
 
 		if($password1 == $password2){
@@ -38,7 +38,7 @@ die("connection failed:" . mysqli_connect_error());
                     $sqlinsert ="INSERT INTO users (name, contact, password) VALUES ('$name', '$contact', '$password')";
                     $resultinsert=mysqli_query($conn, $sqlinsert);
                     
-                    $_SESSION['phon']=$contact;
+                    $_SESSION['phone']=$contact;
                     $_SESSION['name'] = $name;
                     header('location: home1.php');
                     
@@ -66,7 +66,7 @@ die("connection failed:" . mysqli_connect_error());
     //login
     if(isset($_POST['login'])){
 		$contact= $_POST['phone'];
-        $_SESSION['phon']=$contact;
+        $_SESSION['phone']=$contact;
 		$password = $_POST['pwd'];
 
         
