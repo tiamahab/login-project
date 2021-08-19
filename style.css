@@ -173,6 +173,54 @@ fixed nav
     text-align: center;
 }
 /*----------
+credit form
+------------*/
+main .credit-form{
+    width: 80%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 10px;
+}
+main .credit-form h5{
+    text-align: center;
+}
+main .credit-form form{
+    width: 80%;
+    margin: 0 auto;
+}
+main .credit-form form .input-group{
+    width: 100%;
+    display: inline-block;
+}
+main .credit-form form .input-group label{
+    width: 30%;
+    display: inline-block;
+    font-weight: bolder;
+}
+main .credit-form form .input-group input{
+    width: 65%;
+    display: inline-block;
+    border-radius: 5px;
+}
+main .credit-form form button{
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+}
+main .credit-form form button:hover{
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    background: crimson;
+    color: #fff;
+    padding: 5px;
+}
+/*----------
 lay and back
 -----------*/
 main section{
