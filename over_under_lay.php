@@ -29,13 +29,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <header >
+        <header >
             <nav>
                 <div class="logo">
                     <a  href="home1.php">CO. NAME</a>
                 </div>
                 <div class="name">
                     <a href="profile.php?phone=<?php echo $_SESSION['phone'];?>" ><?php echo $_SESSION['username'];?></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i style="width: 30px;height: 30px; font-size:large; color: #000;background: #fff;padding: 5px;border-radius: 5px;" class="fas fa-align-justify"></i>
+                </button>    
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav m-auto">
+                        <li><a href=""><span><i class="fas fa-user-edit"></i></span> Update Profile</a></li>
+                        <li><a href="deposit.php?phone=<?php echo $_SESSION['phone'];?>"><span><i class="fas fa-funnel-dollar"></i></span> Deposit</a></li>
+                        <li><a href="#"><span><i class="fas fa-money-bill-alt"></i></span> Withdraw</a></li>
+                    </ul>
                 </div>
             </nav>
         </header>
