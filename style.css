@@ -705,7 +705,7 @@ customisations
 @media(max-width:600px) {
     body{
         width: 100%
-        background: rgb(209, 207, 207);
+        background: #fff;
     }
     .wrapper{
         background: #fff;
