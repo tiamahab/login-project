@@ -11,7 +11,7 @@
     }
     if(isset($_GET['phne'])&& isset($_GET['ref']) && isset($_GET['amount'])){
         $number=$_GET['phne'];
-        $amount=-$_GET['amount'];
+        $amount=$_GET['amount'];
         $ref=$_GET['ref'];
         $sql="SELECT * FROM users WHERE contact='$number'";
         $res= mysqli_query($conn, $sql);
@@ -20,7 +20,7 @@
         $sqlamount="INSERT INTO account( userid, amount,transID)
         VALUES('$uid', '$amount','$ref')";
         $result= mysqli_query($conn, $sqlamount);
-        header('location: admin.credituser.php?phone='.$number);
+        header('location: deposit.php?phone='.$number);
     }
     $phone=$_GET['phone'];
     $sql="SELECT * FROM users WHERE contact='".$phone."'";
@@ -40,25 +40,29 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <nav>
-            <div class="logo">
-                <a  href="admin.matches.php">CO. ADMIN</a>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <i style="width: 30px;height: 30px; font-size:large; color: #000;background: #fff;padding: 5px;border-radius: 5px;" class="fas fa-align-justify"></i>
-            </button>    
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="navbar-nav m-auto">
-                    <li><a href="admin.users.php">USERS</a></li>
-                    <li><a href="admin.matches.php">MATCHES</a></li>
-                    <li><a href="">BETS</a></li>
-                    <li><a href="index.php">SWITCH<a></li>
-                </ul>
-            </div>
-        </nav>
+        <header >
+            <nav>
+                <div class="logo">
+                    <a  href="home1.php">CO. NAME</a>
+                </div>
+                <div class="name">
+                    <a href="profile.php?phone=<?php echo $_SESSION['phone'];?>" ><?php echo $_SESSION['username'];?></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i style="width: 30px;height: 30px; font-size:large; color: #000;background: #fff;padding: 5px;border-radius: 5px;" class="fas fa-align-justify"></i>
+                </button>    
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav m-auto">
+                        <li><a href="profileupdate.php"><span><i class="fas fa-user-edit"></i></span> Update Profile</a></li>
+                        <li><a href="deposit.php?phone=<?php echo $_SESSION['phone'];?>"><span><i class="fas fa-funnel-dollar"></i></span> Deposit</a></li>
+                        <li><a href="#"><span><i class="fas fa-money-bill-alt"></i></span> Withdraw</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <main>
             <div class="credit-form">
-                <h5>CREDIT <?php echo strtoupper($row['name']); ?>'s ACCOUNT</h5>
+                <h5>Deposit on your acount</h5>
                 
                 <form action=""  method="post" id="payForm">
                 
@@ -82,7 +86,7 @@
                                 if($rowbet['total']!=0){
                         ?>
                             <div class="balance">
-                                <span>Balance:</span> UGX <?php echo  $rowbet['total'];?>
+                                <span>Current Balance:</span> UGX<?php echo  $rowbet['total'];?>
                             </div>
                         <?php
                                 }
@@ -90,7 +94,7 @@
                                 {
                                 ?>
                                     <div class="balance">
-                                        <span>Balance: </span>UGX 0.0
+                                        <span>Current Balance: UGX</span>UGX 0.0
                                     </div>
                                 <?php
                                 }
@@ -101,7 +105,7 @@
                         {
                         ?>
                             <div class="balance">
-                            <span>Balance:</span> <?php echo  $row['name'];?>'s Acount is empty.
+                            <span><?php echo  $row['name'];?>'s</span>  Acount is empty.
                             </div>
                         <?php
                         }
@@ -148,7 +152,7 @@
                     },
                     callback: function(data){
                         console.log(data);
-                        window.location = 'admin.credituser.php?ref='+data.tx_ref+'&phne='+data.customer.phone_number+'&amount='+data.amount;
+                        window.location = 'deposit.php?ref='+data.tx_ref+'&phne='+data.customer.phone_number+'&amount='+data.amount;
                     },
                     customizations: {
                         'title':'BETTING COMPANY',
