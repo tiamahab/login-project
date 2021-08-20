@@ -21,13 +21,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
+        <header >
             <nav>
                 <div class="logo">
                     <a  href="home1.php">CO. NAME</a>
                 </div>
                 <div class="name">
                     <a href="profile.php?phone=<?php echo $_SESSION['phone'];?>" ><?php echo $_SESSION['username'];?></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i style="width: 30px;height: 30px; font-size:large; color: #000;background: #fff;padding: 5px;border-radius: 5px;" class="fas fa-align-justify"></i>
+                </button>    
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav m-auto">
+                        <li><a href=""><span><i class="fas fa-user-edit"></i></span> Update Profile</a></li>
+                        <li><a href="deposit.php?phone=<?php echo $_SESSION['phone'];?>"><span><i class="fas fa-funnel-dollar"></i></span> Deposit</a></li>
+                        <li><a href="#"><span><i class="fas fa-money-bill-alt"></i></span> Withdraw</a></li>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -171,20 +181,40 @@
             </div>
             <div class="wallet">
                 <h4>My account</h4>
-                <?php
-                    $sqlbet="SELECT SUM(amount) as total From account WHERE userid='".$row['id']."' ";
-                    $resultbet=mysqli_query($conn, $sqlbet);
-                    if(mysqli_num_rows($resultbet)>0){
-                        foreach($resultbet AS $rowbet){
-                            echo  $rowbet['total'];
+                <div class="account">
+                    <?php
+                        $sqlbet="SELECT SUM(amount) as total From account WHERE userid='".$row['id']."' ";
+                        $resultbet=mysqli_query($conn, $sqlbet);
+                        if(mysqli_num_rows($resultbet)>0){
+                            foreach($resultbet AS $rowbet){
+                                if($rowbet['total']!=0){
+                        ?>
+                            <div class="balance">
+                                <span>Current Balance:</span> UGX: <?php echo  $rowbet['total'];?>
+                            </div>
+                        <?php
+                                }
+                                else
+                                {
+                                ?>
+                                    <div class="balance">
+                                        <span>Current Balance: </span>UGX: 0.0
+                                    </div>
+                                <?php
+                                }
+                                
+                            }
                         }
-                    }
-                    else
-                    {
-                        echo  'Your Acount is empty';
-                    }
-                    
-                ?>
+                        else
+                        {
+                        ?>
+                            <div class="balance">
+                            <span><?php echo  $row['name'];?>'s</span>  Acount is empty.
+                            </div>
+                        <?php
+                        }
+                    ?>
+                </div>
                 
             </div>
 
