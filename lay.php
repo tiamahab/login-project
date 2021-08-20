@@ -35,29 +35,21 @@ die("connection failed:" . mysqli_connect_error());
     </head>
     <body>
         <header >
-            <nav class="navbar navbar-expand-sm " id="my-navbar">
-                <a id="navbar-brand" href="home1.php">CO. NAME</a>
+            <nav>
+                <div class="logo">
+                    <a  href="home1.php">CO. NAME</a>
+                </div>
+                <div class="name">
+                    <a href="profile.php?phone=<?php echo $_SESSION['phone'];?>" ><?php echo $_SESSION['username'];?></a>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                  <span ><i class="fas fa-align-justify"></i></span>
-                </button>
-              
+                    <i style="width: 30px;height: 30px; font-size:large; color: #000;background: #fff;padding: 5px;border-radius: 5px;" class="fas fa-align-justify"></i>
+                </button>    
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav m-auto">
-                        <li>
-                            <a href="home1.php"><i class="fas fa-home"></i> HOME</a>
-                        </li>
-
-                        <li >
-                            <a href="#"><i class="fas fa-phone"></i> CONTACT US</a>
-                        </li>
-
-                        <li>
-                            <a href="#"><i class="fas fa-chevron-down"></i> SERVICES</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a href="#"><i class="fas fa-user"></i> ABOUT US</a>
-                        </li>
+                        <li><a href=""><span><i class="fas fa-user-edit"></i></span> Update Profile</a></li>
+                        <li><a href="deposit.php?phone=<?php echo $_SESSION['phone'];?>"><span><i class="fas fa-funnel-dollar"></i></span> Deposit</a></li>
+                        <li><a href="#"><span><i class="fas fa-money-bill-alt"></i></span> Withdraw</a></li>
                     </ul>
                 </div>
             </nav>
