@@ -61,7 +61,7 @@
                             <td>".$row['contact']."</td>
                             <td><a href='admin.userprofile.php?phone=".$row['contact']."'>View</a></td>
                             <td><a href='admin.delete.php?id=".$row['id']."'>delete</a></td>
-                            <td><a href='admin.credituser.php?id=".$row['id']."'>Credit</a></td>
+                            <td><a href='admin.credituser.php?phone=".$row['contact']."'>Credit</a></td>
                           </tr>
                         ";
                       }
