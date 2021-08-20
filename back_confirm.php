@@ -97,18 +97,18 @@ die("connection failed:" . mysqli_connect_error());
                                     <h6>Back:<strong>".$row['home']."</strong></h6>
                                     <form method='post' action='manage_back.php'>
                                         <div class='stake-confirm'>
-                                            <span>odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
+                                            <span>Odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
                                         </div>
                                         <input name='uid' value='".$userid."' style='display:none;'>
                                         
                                         <div class='stake-confirm'>
-                                            <span>stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                            <span>Stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
                                             <span>Winnings</span><input type='number' name='win' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
-                                            <span>comission</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                            <span>Comission (5%)</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
                                             <span>Returns</span><input type='number' name='return' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']-$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
@@ -136,18 +136,18 @@ die("connection failed:" . mysqli_connect_error());
                                     <h6>Back: <strong>".$row['away']."</strong></h6>
                                     <form method='post' action='manage_back.php'>
                                         <div class='stake-confirm'>
-                                            <span>odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
+                                            <span>Odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
                                         </div>
                                         <input name='uid' value='".$userid."' style='display:none;'>
                                         
                                         <div class='stake-confirm'>
-                                            <span>stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                            <span>Stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
                                             <span>Winnings</span><input type='number' name='win' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
-                                            <span>comission</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                            <span>Comission (5%)</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
                                             <span>Returns</span><input type='number' name='return' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']-$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
@@ -175,18 +175,18 @@ die("connection failed:" . mysqli_connect_error());
                                     <h6>Back: <strong>draw</strong></h6>
                                     <form method='post' action='manage_lay.php'>
                                         <div class='stake-confirm'>
-                                            <span>odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
+                                            <span>Odd</span><input type='number' name='odd' step='0.1' value='".$_SESSION['odd']."' style='background:transparent; border:none;' readonly>
                                         </div>
                                         <input name='uid' value='".$userid."' style='display:none;'>
                                         
                                         <div class='stake-confirm'>
-                                            <span>stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                            <span>Stake</span><input type='number' name='stake' step='0.1' value='".$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
                                             <span>Winnings</span><input type='number' name='win' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
-                                            <span>comission</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
+                                            <span>Comission (5%)</span><input type='number' name='tax' step='0.1' value='".$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
                                         </div>
                                         <div class='stake-confirm'>
                                             <span>Returns</span><input type='number' name='return' step='0.1' value='".$_SESSION['odd']*$_SESSION['stake']-$tax* $_SESSION['odd']* $_SESSION['stake']."' readonly style='background:transparent; border:none;'>
