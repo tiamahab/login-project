@@ -53,7 +53,7 @@
                 </button>    
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav m-auto">
-                        <li><a href="profileupdate.php"><span><i class="fas fa-user-edit"></i></span> Update Profile</a></li>
+                        <li><a href=""><span><i class="fas fa-user-edit"></i></span> Update Profile</a></li>
                         <li><a href="deposit.php?phone=<?php echo $_SESSION['phone'];?>"><span><i class="fas fa-funnel-dollar"></i></span> Deposit</a></li>
                         <li><a href="#"><span><i class="fas fa-money-bill-alt"></i></span> Withdraw</a></li>
                     </ul>
