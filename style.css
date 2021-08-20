@@ -38,13 +38,31 @@ header nav .logo a{
 }
 header nav .name{
     position: absolute;
-    right: 20px;
-    top: 10px;
+    right: 60px;
+    top: 15px;
     text-decoration: none;
 }
 header nav .name a{
     color: crimson;
     font-weight: bolder;
+}
+
+
+header nav button{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+header nav .collapse{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+header nav .collapse ul{
+    text-align: left;
+}
+header nav .collapse ul li{
+    text-align: left;
 }
 /*----------
 admin
