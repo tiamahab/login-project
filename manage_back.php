@@ -5,6 +5,10 @@
 if(!$conn){
 die("connection failed:" . mysqli_connect_error());
 }
+    $sqluser="SELECT * FROM users WHERE contact ='".$_SESSION['phone']."'";
+    $res=mysqli_query($conn, $sqluser);
+    $rowuser=mysqli_fetch_assoc($res);
+    $userid=$rowuser['id'];
     $odd="";
     $stake="";
     if(isset($_POST['back-bet'])){
