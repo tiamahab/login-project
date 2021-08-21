@@ -56,6 +56,28 @@ die("connection failed:" . mysqli_connect_error());
         </header>
 <div class="fixed-navigation"> <div class="item"> <a href="home1.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-home"></i> <span>HOME</span> </a> </div> <div class="item"> <a href="home1.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-wallet"></i> <span>Balance</span> </a> </div> <div class="item"> <a href="profile.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-briefcase"></i> <span>My bets</span> </a> </div> <div class="item"> <a href="logout.php"> <i style="margin-left: 45%;color: crimson;" class="fas fa-times"></i> <span>Logout</span> </a> </div> </div>
         <main>
+            <?php
+                if(isset($_SESSION['error'])){
+                ?>
+                    <div id="error" style="width:100%; font-weight:bolder; color:#fff; margin:0 auto; background:pink; height:40px; text-align:center; font-size:18px; border-radius:5px;">
+                        <?php 
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+                        ?>
+                    </div>
+                <?php
+                }
+                if(isset($_SESSION['success'])){
+                ?>
+                    <div id="error" style="width:100%; font-weight:bolder; color:#fff; margin:0 auto; background:green; height:40px;text-align:center; font-size:18px; border-radius:5px;">
+                    <?php 
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                    ?>
+                    </div>
+                    <?php
+                }
+            ?>
         <section>
                 <?php 
 
