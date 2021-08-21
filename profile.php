@@ -5,7 +5,10 @@
     }
 
     //connect to the database
-    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");if(!$conn){die("connection failed:" . mysqli_connect_error());}
+    $conn=mysqli_connect("sql4.freesqldatabase.com","sql4432075","Sr37jBwi8s","sql4432075");
+	if(!$conn){
+		die("connection failed:" . mysqli_connect_error());
+	}
     $sql = "SELECT * FROM users WHERE contact= '".$_SESSION['phone']."'";
     $result=mysqli_query($conn, $sql);
 ?>
