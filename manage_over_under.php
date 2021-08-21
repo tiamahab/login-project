@@ -7,20 +7,36 @@ die("connection failed:" . mysqli_connect_error());
 }
     $odd="";
     $stake="";
-
-    if(isset($_POST['back-over-under'])){
+if(isset($_POST['back-over-under'])){
         $uerid=$_POST['uid'];
         $kind=$_POST['kind'];
         $matchid=$_POST['matchid'];
         $odd=$_POST['odd'];
         $stake=$_POST['stake'];
+        if(!empty($odd) && !empty($stake)){
+            if($stake < 500){
+                $_SESSION['error']='min stake is UGX: 500';
+                header('location: over_under.php?kind='.$kind.'&matchid='.$matchid);
+            }
+            else
+            {
+                $sqlbet="SELECT SUM(amount) as total From account WHERE userid='$userid' ";
+                $resultbet=mysqli_query($conn, $sqlbet);
+                $rowbet=mysqli_fetch_assoc($resultbet);
+                if($rowbet['total'] < $stake){
+                    $_SESSION['error']='you dont have enough';
+                    header('location: over_under.php?kind='.$kind.'&matchid='.$matchid);
+                }
+                else
+                {
+                    $_SESSION['odd']=$odd;
+                    $_SESSION['stake']=$stake;
+                    $_SESSION['kind']=$kind;
+                    $_SESSION['matchid']=$matchid;
+                    header('location: over_under_back_confirm.php');
+                }
 
-        if(!empty($odd) && !empty($odd)){
-            $_SESSION['odd']=$odd;
-            $_SESSION['stake']=$stake;
-            $_SESSION['kind']=$kind;
-            $_SESSION['matchid']=$matchid;
-            header('location: over_under_back_confirm.php');
+            }
         }
     }
 
@@ -33,17 +49,28 @@ die("connection failed:" . mysqli_connect_error());
         $win=$_POST['win'];
         $tax=$_POST['tax'];
         $return=$_POST['return'];
+        $set='123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code=substr(str_shuffle($set), 0, 12);
+        $ref='OU_BACK_BET_'.$code;
+        if($stake>500){
+            $sql="INSERT INTO back( userid, matchid, kind, odd, stake,winnings,tax,retrn,status) 
+            VALUES('$userid','$matchid','$kind','$odd','$stake','$win','$tax','$return','pending')";
+            mysqli_query($conn, $sql);
+            $sqlacc="INSERT INTO account(userid,amount,transID) 
+                        VALUES('$userid','-$stake','$ref')";
+            mysqli_query($conn, $sqlacc);
 
-        
-        $sql="INSERT INTO back( userid, matchid, kind, odd, stake,winnings,tax,retrn,status) 
-        VALUES('$userid','$matchid','$kind','$odd','$stake','$win','$tax','$return','pending')";
-        $result= mysqli_query($conn, $sql);
-
-        unset($_SESSION['kind']);
-        unset($_SESSION['matchid']);
-        unset($_SESSION['odd']);
-        $_SESSION['success']=='bet successful';
-        header('location: over_under.php?matchId='.$matchid);
+            unset($_SESSION['kind']);
+            unset($_SESSION['matchid']);
+            unset($_SESSION['odd']);
+            $_SESSION['success']='bet successful';
+            header('location: over_under.php?matchId='.$matchid);
+        }
+        else
+        {
+            $_SESSION['error']='min stake is UGX: 500';
+            header('location: over_under.php?matchId='.$matchid);
+        }
     }
 
     if(isset($_POST['lay-over-under'])){
@@ -52,13 +79,30 @@ die("connection failed:" . mysqli_connect_error());
         $matchid=$_POST['matchid'];
         $odd=$_POST['odd'];
         $stake=$_POST['stake'];
+        if(!empty($odd) && !empty($stake)){
+            if($stake < 500){
+                $_SESSION['error']='min stake is UGX: 500';
+                header('location: over_under.php?kind='.$kind.'&matchid='.$matchid);
+            }
+            else
+            {
+                $sqlbet="SELECT SUM(amount) as total From account WHERE userid='$userid' ";
+                $resultbet=mysqli_query($conn, $sqlbet);
+                $rowbet=mysqli_fetch_assoc($resultbet);
+                if($rowbet['total'] < $stake){
+                    $_SESSION['error']='you dont have enough';
+                    header('location: over_under.php?kind='.$kind.'&matchid='.$matchid);
+                }
+                else
+                {
+                    $_SESSION['odd']=$odd;
+                    $_SESSION['stake']=$stake;
+                    $_SESSION['kind']=$kind;
+                    $_SESSION['matchid']=$matchid;
+                    header('location: over_under_lay_confirm.php');
+                }
 
-        if(!empty($odd) && !empty($odd)){
-            $_SESSION['odd']=$odd;
-            $_SESSION['stake']=$stake;
-            $_SESSION['kind']=$kind;
-            $_SESSION['matchid']=$matchid;
-            header('location: over_under_lay_confirm.php');
+            }
         }
     }
 
@@ -71,16 +115,27 @@ die("connection failed:" . mysqli_connect_error());
         $win=$_POST['win'];
         $tax=$_POST['tax'];
         $return=$_POST['return'];
+        $set='123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code=substr(str_shuffle($set), 0, 12);
+        $ref='OU_LAY_BET_'.$code;
+        if($stake>500){
+            $sql="INSERT INTO lay( userid, matchid, kind, odd, stake,winnings,tax,retrn,status) 
+            VALUES('$userid','$matchid','$kind','$odd','$stake','$win','$tax','$return','pending')";
+            mysqli_query($conn, $sql);
+            $sqlacc="INSERT INTO account(userid,amount,transID) 
+                        VALUES('$userid','-$stake','$ref')";
+            mysqli_query($conn, $sqlacc);
 
-        
-        $sql="INSERT INTO lay( userid, matchid, kind, odd, stake,winnings,tax,retrn,status) 
-        VALUES('$userid','$matchid','$kind','$odd','$stake','$win','$tax','$return','pending')";
-        $result= mysqli_query($conn, $sql);
-
-        unset($_SESSION['kind']);
-        unset($_SESSION['matchid']);
-        unset($_SESSION['odd']);
-        $_SESSION['success']=='bet successful';
-        header('location: over_under.php?matchId='.$matchid);
+            unset($_SESSION['kind']);
+            unset($_SESSION['matchid']);
+            unset($_SESSION['odd']);
+            $_SESSION['success']='bet successful';
+            header('location: over_under.php?matchId='.$matchid);
+        }
+        else
+        {
+            $_SESSION['error']='min stake is UGX: 500';
+            header('location: over_under.php?matchId='.$matchid);
+        }
     }
 ?>
