@@ -67,12 +67,12 @@
             unset($_SESSION['kind']);
             unset($_SESSION['matchid']);
             unset($_SESSION['odd']);
-            $_SESSION['success']=='bet successful';
+            $_SESSION['success']='bet successful';
             header('location: match_details.php?matchId='.$matchid);
         }
         else
         {
-            $_SESSION['error']=='min stake is UGX: 500';
+            $_SESSION['error']='min stake is UGX: 500';
             header('location: match_details.php?matchId='.$matchid);
         }
     }
