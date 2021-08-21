@@ -12,7 +12,6 @@
     $odd="";
     $stake="";
     if(isset($_POST['back-bet'])){
-        $uerid=$_POST['uid'];
         $kind=$_POST['kind'];
         $matchid=$_POST['matchid'];
         $odd=$_POST['odd'];
@@ -45,7 +44,6 @@
     }
 
     if(isset($_POST['back-confirm'])){
-        $userid=$_POST['uid'];
         $kind=$_SESSION['kind'];
         $matchid=$_SESSION['matchid'];
         $odd=$_POST['odd'];
