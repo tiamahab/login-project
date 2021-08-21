@@ -87,10 +87,10 @@
             <div class="credit-form">
                 <h5>Deposit on your acount</h5>
                 
-                <form action=""  method="post" id="payForm">
+                <form action="managecash.php"  method="post" id="payForm">
                 
                     <input type="text" id="fullName" value="<?php echo $row['name'] ?>" style="display: none;">
-                    <input type="text" id="phoneNumber" value="<?php echo $row['contact']?>" style="display: none;">
+                    <input type="text" name="phoneNumber" value="<?php echo $row['contact']?>" style="display: none;">
                     <div class="input-group">
                         <label>
                             AMOUNT
@@ -98,7 +98,7 @@
                         <input type="number" id="amount" name="amount" step="0.1"  placeholder="enter amount..">
                     </div>
                     <br>
-                    <button type="submit" name="credit-user">CONFIRM</button>
+                    <button type="submit" name="deposit">CONFIRM</button>
                 </form>
                 <div class="account">
                     <?php
@@ -152,37 +152,5 @@
         <script src="jquery.1.min.js"></script>
         <script src="bootstrap.min.js"></script>
         <script src="all.js"></script>
-        <script src="https://checkout.flutterwave.com/v3.js"></script>
-        <script>
-            //subscription
-            const form =document.getElementById("payForm");
-            form.addEventListener("submit", payNow);
-
-            function payNow(e){
-                //prevent Normal Form submit
-                e.preventDefault();
-
-                //set configuration
-                FlutterwaveCheckout({
-                    public_key:"FLWPUBK_TEST-f46a1292340a259e694bdf5c17a6a254-X",
-                    tx_ref:"BET_CO_"+Math.floor((Math.random()*1000000000)+1),
-                    amount: document.getElementById("amount").value,
-                    currency:"UGX",
-                    customer:{
-                        email:"tiamahab@gmai.com",
-                        phonenumber:document.getElementById("phoneNumber").value,
-                        name:document.getElementById("fullName").value
-                    },
-                    callback: function(data){
-                        console.log(data);
-                        window.location = 'deposit.php?ref='+data.tx_ref+'&phne='+data.customer.phone_number+'&amount='+data.amount;
-                    },
-                    customizations: {
-                        'title':'BETTING COMPANY',
-                        'description':'Crediting user account'
-                    }
-                });
-            }
-        </script>
     </body>
 </html>
