@@ -5,11 +5,10 @@
     }
 
         //connect to the database
-        $conn = mysqli_connect("localhost","root", "","brian");
-        //checking connection
-        if (!$conn) {
-          die("connection failed: " . mysqli_connect_error());
-        }
+    $conn=mysqli_connect("sql4.freesqldatabase.com","sql4432075","Sr37jBwi8s","sql4432075");
+	if(!$conn){
+		die("connection failed:" . mysqli_connect_error());
+	}
     $sql="SELECT * FROM matches WHERE status='deactivate' ORDER BY id desc";
     $result=mysqli_query($conn, $sql);
 ?>
