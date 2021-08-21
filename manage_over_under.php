@@ -5,10 +5,13 @@
 if(!$conn){
 die("connection failed:" . mysqli_connect_error());
 }
+    $sqluser="SELECT * FROM users WHERE contact ='".$_SESSION['phone']."'";
+    $res=mysqli_query($conn, $sqluser);
+    $rowuser=mysqli_fetch_assoc($res);
+    $userid=$rowuser['id'];
     $odd="";
     $stake="";
 if(isset($_POST['back-over-under'])){
-        $uerid=$_POST['uid'];
         $kind=$_POST['kind'];
         $matchid=$_POST['matchid'];
         $odd=$_POST['odd'];
@@ -41,7 +44,6 @@ if(isset($_POST['back-over-under'])){
     }
 
     if(isset($_POST['back-over-under-confirm'])){
-        $userid=$_POST['uid'];
         $kind=$_SESSION['kind'];
         $matchid=$_SESSION['matchid'];
         $odd=$_POST['odd'];
@@ -74,7 +76,6 @@ if(isset($_POST['back-over-under'])){
     }
 
     if(isset($_POST['lay-over-under'])){
-        $uerid=$_POST['uid'];
         $kind=$_POST['kind'];
         $matchid=$_POST['matchid'];
         $odd=$_POST['odd'];
@@ -107,7 +108,6 @@ if(isset($_POST['back-over-under'])){
     }
 
     if(isset($_POST['lay-over-under-confirm'])){
-        $userid=$_POST['uid'];
         $kind=$_SESSION['kind'];
         $matchid=$_SESSION['matchid'];
         $odd=$_POST['odd'];
