@@ -1,7 +1,10 @@
 <?php
     session_start();
     //connect to the database
-    $conn=mysqli_connect("sql5.freesqldatabase.com","sql5430872","QRNB4IUK2P","sql5430872");if(!$conn){die("connection failed:" . mysqli_connect_error());}
+        $conn=mysqli_connect("sql4.freesqldatabase.com","sql4432075","Sr37jBwi8s","sql4432075");
+	if(!$conn){
+		die("connection failed:" . mysqli_connect_error());
+	}
     if(isset($_POST['create-bet'])){
         $home=$_POST['home'];
         $away=$_POST['away'];
