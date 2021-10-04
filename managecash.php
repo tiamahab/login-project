@@ -8,8 +8,8 @@
         $code=substr(str_shuffle($set), 0, 12);
         $url= 'https://www.easypay.co.ug/api/'; 
         $payload = array( 
-            'username' => '4501b992eba42326', 
-            'password' => 'be78c80094ce892e', 
+            'username' => '****************', 
+            'password' => '****************', 
             'action' => 'mmdeposit', 
             'amount' => $amount, 
             'phone'=>$phone, 
