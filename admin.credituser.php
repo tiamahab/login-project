@@ -137,7 +137,7 @@
 
                 //set configuration
                 FlutterwaveCheckout({
-                    public_key:"FLWPUBK_TEST-f46a1292340a259e694bdf5c17a6a254-X",
+                    
                     tx_ref:"BET_CO_"+Math.floor((Math.random()*1000000000)+1),
                     amount: document.getElementById("amount").value,
                     currency:"UGX",
